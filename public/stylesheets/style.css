@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.questionCard {
+  width: 60px;
+  height: 120px;
+  background-color: #1C112B;
+  border-radius: 2px;
+}
+
+.questionGif {
+  width: 20px;
+  height: 20px;
+}

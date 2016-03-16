@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="/javascripts/module.js" charset="utf-8"></script>
+    <script src="/javascripts/main.js" charset="utf-8"></script>
+    <script src="/javascripts/controllers.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class='questionCard z-depth-5'>
+          <img class='questionGif' src="http://bit.ly/1R29G4X" alt="" />
+        </div>
+      </div>      <!-- Page Content goes here -->
+    </div>
+
+
+    <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 45px;">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating green modal-trigger" href="#modal1"><i class="material-icons">publish</i></a></li>
+      </ul>
+    </div>
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="category" type="text" class="validate">
+            <label>Category</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="question" type="text" class="validate">
+            <label>Question</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="answer" type="text" class="validate">
+            <label>Answer</label>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">cancel</a>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
