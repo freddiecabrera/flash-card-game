@@ -10,7 +10,6 @@
     <script src="/javascripts/module.js" charset="utf-8"></script>
     <script src="/javascripts/controllers.js" charset="utf-8"></script>
     <script src="/javascripts/services.js" charset="utf-8"></script>
-    <script src="/javascripts/main.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
@@ -49,12 +48,14 @@
 
 
     <div class="container-fluid">
-      <div class="row" style="margin-left: 90px" ng-repeat='card in list track by $index'>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
+      <div class="row" style="margin-left: 90px">
+        <div class='col s2' ng-repeat='card in list' repeat-done='initModals()'>
+          <div class='initQuestionCard z-depth-3 modal-trigger' href="#modal1">
             <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
             <p class='initCategory'>{{card.category}}</p>
             <p class='initQuestion'>{{card.question}}</p>
           </div>
+        </div>
       </div>
     </div>
 

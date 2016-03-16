@@ -1,11 +1,11 @@
 'use strict';
 
 var app = angular.module("flashCardApp")
-// 
-// app.controller("cardCtrl", ($scope, Services) => {
-//   $scope.initModals = function() {
-//     $('.modal-trigger').leanModal();
-//   }
+
+app.controller("cardCtrl", ($scope, Services) => {
+  $scope.initModals = function() {
+    $('.modal-trigger').leanModal();
+  }
 
   $scope.$watch(function() {
     return Services.list
