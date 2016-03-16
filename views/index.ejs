@@ -3,21 +3,23 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <!-- Compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js" charset="utf-8"></script>
     <script src="/javascripts/module.js" charset="utf-8"></script>
-    <script src="/javascripts/main.js" charset="utf-8"></script>
     <script src="/javascripts/controllers.js" charset="utf-8"></script>
+    <script src="/javascripts/services.js" charset="utf-8"></script>
+    <script src="/javascripts/main.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   </head>
-  <body>
+  <body ng-app='flashCardApp' ng-controller='cardCtrl'>
 
-    <a class="waves-effect waves-light btn-large yellow accent-3"><i class="material-icons left">view_list</i>Add card</a>
+    <a ng-model='showNavBar' ng-click='' class="waves-effect waves-light btn-large yellow accent-3"><i class="material-icons left">view_list</i>Add card</a>
+
     <div class="container">
       <div class="row">
         <form class="col s12 newAlbumForm" ng-hide='newAlbumForm'>
@@ -36,7 +38,7 @@
               <label>Answer</label>
             </div>
 
-            <a class="addButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
+            <a ng-model='addCardButton' ng-click='' class="addButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
         </form>
       </div>
     </div>
@@ -47,153 +49,11 @@
 
 
     <div class="container-fluid">
-      <div class="row" style="margin-left: 90px">
+      <div class="row" style="margin-left: 90px" ng-repeat='card in list track by $index'>
           <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
             <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard  col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
-          </div>
-
-          <div class='initQuestionCard offset-s1 col s2 z-depth-3 modal-trigger' href="#modal1">
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>Soccer</p>
-            <p class='initQuestion'>Who is the best soccer player in the world?</p>
+            <p class='initCategory'>{{card.category}}</p>
+            <p class='initQuestion'>{{card.question}}</p>
           </div>
       </div>
     </div>
