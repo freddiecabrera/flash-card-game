@@ -49,8 +49,8 @@
 
     <div class="container-fluid">
       <div class="row" style="margin-left: 90px">
-        <div class='col s2' ng-repeat='card in list track by $index' repeat-done='initModals()'>
-          <div class='initQuestionCard z-depth-3 modal-trigger' href="#modal1">
+        <div class='col s2' ng-repeat='card in list track by $index' repeat-done='initModals(card, card.id)'>
+          <div class='initQuestionCard z-depth-3 modal-trigger' href="#modal1" ng-click='getCard(card)'>
             <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
             <p class='initCategory'>{{card.category}}</p>
             <p class='initQuestion'>{{card.question}}</p>
@@ -96,23 +96,23 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <div class="row">
-          <div class="input-field col s4">
-            <input id="category" type="text" class="validate">
-            <label>Category</label>
-          </div>
-          <div class="input-field col s4">
-            <input id="question" type="text" class="validate">
-            <label>Question</label>
-          </div>
-          <div class="input-field col s4">
-            <input id="answer" type="text" class="validate">
-            <label>Answer</label>
-          </div>
-      </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input ng-model='updateObj.category' id="category" type="text">
+              <label>Category</label>
+            </div>
+            <div class="input-field col s4">
+              <input ng-model='updateObj.question' id="question" type="text">
+              <label>Question</label>
+            </div>
+            <div class="input-field col s4">
+              <input ng-model='updateObj.answer' id="answer" type='text'>
+              <label>Answer</label>
+            </div>
+        </div>
       <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">cancel</a>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='edit(updateObj)'>Update</a>
       </div>
     </div>
 

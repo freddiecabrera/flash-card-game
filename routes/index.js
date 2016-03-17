@@ -34,8 +34,8 @@ router.delete("/cards/:id", (req, res) => {
     });
 });
 
-router.put("/cards", (req, res) => {
-  id = req.body.id;
+router.put("/cards/:id", (req, res) => {
+  id = req.params.id;
   updateObj = req.body;
   var updateDB = "UPDATE flashcards SET category='" + updateObj.category + "', question='" + updateObj.question + "', answer='" + updateObj.answer + "' where id='" + id + "'";
   db.query(updateDB, function(err, result) {

@@ -3,6 +3,13 @@
 var app = angular.module("flashCardApp")
 
 app.controller("cardCtrl", ($scope, Services) => {
+
+  $scope.cardId;
+
+  $scope.getCard = (card) => {
+    $scope.cardId = card;
+  }
+
   $scope.navContainer = true;
   $scope.showNavBar = false;
 
@@ -33,12 +40,21 @@ app.controller("cardCtrl", ($scope, Services) => {
 
 
   $scope.deleteCard = (card, id) => {
-    console.log('id', id);
-    console.log('card', card);
     var index = $scope.list.indexOf(card)
     $scope.list.splice(index, 1);
     Services.delete(id).then(function() {
     });
+  }
+
+  $scope.edit = (updateObj) => {
+    var card = $scope.cardId;
+    console.log('card', card);
+    console.log('id', card.id);
+    console.log('updateObj', updateObj);
+    Object.assign(card, updateObj)
+    Services.edit(card.id, updateObj).then((res) => {
+      console.log(res)
+    })
   }
 
   // $scope.edit = (upItem) => {
