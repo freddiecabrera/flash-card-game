@@ -1,0 +1,70 @@
+
+<a ng-click='navBar()' class="waves-effect waves-light btn-large yellow accent-3 showNavBar" ng-hide='showNavBar'><i class="material-icons left">view_list</i>Add card</a>
+
+<div class="container navContainer" ng-hide='navContainer'>
+  <div class="row">
+    <form class="col s12 newAlbumForm" ng-hide='newAlbumForm'>
+
+      <div class="input-field col s4">
+        <input ng-model='newCard.category' id="categoryInput" type="text" class="validate black-text">
+        <label>Category</label>
+      </div>
+      <div class="input-field col s4">
+        <input ng-model='newCard.question' id="questionInput" type="text" class="validate black-text">
+        <label>Question</label>
+      </div>
+
+        <div class="input-field col s3">
+          <input ng-model='newCard.answer' id="comment" type="text" class="validate black-text">
+          <label>Answer</label>
+        </div>
+
+        <a ng-model='addCardButton' ng-click='addCard()' class="addButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row" style="margin-left: 90px">
+    <div class='col s2' ng-repeat='card in list track by $index' repeat-done='initModals(card, card.id)'>
+      <div class='initQuestionCard z-depth-3 modal-trigger' href="#modal1" ng-click='getCard(card)'>
+        <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
+        <p class='initCategory'>{{card.category}}</p>
+        <p class='initQuestion'>{{card.question}}</p>
+      </div>
+      <a ng-model='deleteButton' ng-click='deleteCard(card, card.id)' class="deleteButton btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+      <div class="row">
+        <div class="input-field col s4">
+          <input ng-model='updateObj.category' id="category" type="text">
+          <label>Category</label>
+        </div>
+        <div class="input-field col s4">
+          <input ng-model='updateObj.question' id="question" type="text">
+          <label>Question</label>
+        </div>
+        <div class="input-field col s4">
+          <input ng-model='updateObj.answer' id="answer" type='text'>
+          <label>Answer</label>
+        </div>
+    </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">cancel</a>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='edit(updateObj)'>Update</a>
+  </div>
+</div>

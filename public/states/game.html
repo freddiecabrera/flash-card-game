@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <!-- Question card -->
+      <div class="front">
+        <div class="row">
+          <div class='questionCard z-depth-5'>
+            <img class='questionGif' src="http://bit.ly/1polRSn" alt="?"/>
+            <h4 class='category' "(key, info) in single)">{{single.category}}</h4>
+            <p class='question' "(key, info) in single)">{{single.question}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Answer card -->
+      <div class="back">
+        <div class="row">
+          <div class='answerCard z-depth-5'>
+            <img class='answerGif' src="http://bit.ly/1pomFGR" alt=""/>
+            <h5 class="answerTitle">Answer</h5>
+            <h3 class="answer" "(key, info) in single)">{{single.answer}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a ng-click='nextCard()' class="newCardButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
+</div>

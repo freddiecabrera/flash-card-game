@@ -15,108 +15,21 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   </head>
-  <body ng-app='flashCardApp' ng-controller='cardCtrl'>
-
-    <a ng-click='navBar()' class="waves-effect waves-light btn-large yellow accent-3 showNavBar" ng-hide='showNavBar'><i class="material-icons left">view_list</i>Add card</a>
-
-    <div class="container navContainer" ng-hide='navContainer'>
-      <div class="row">
-        <form class="col s12 newAlbumForm" ng-hide='newAlbumForm'>
-
-          <div class="input-field col s4">
-            <input ng-model='newCard.category' id="categoryInput" type="text" class="validate black-text">
-            <label>Category</label>
-          </div>
-          <div class="input-field col s4">
-            <input ng-model='newCard.question' id="questionInput" type="text" class="validate black-text">
-            <label>Question</label>
-          </div>
-
-            <div class="input-field col s3">
-              <input ng-model='newCard.answer' id="comment" type="text" class="validate black-text">
-              <label>Answer</label>
-            </div>
-
-            <a ng-model='addCardButton' ng-click='addCard()' class="addButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
-        </form>
-      </div>
-    </div>
+  <body ng-app='flashCardApp'>
 
 
+  <ui-view></ui-view>
 
 
-
-
-    <div class="container-fluid">
-      <div class="row" style="margin-left: 90px">
-        <div class='col s2' ng-repeat='card in list track by $index' repeat-done='initModals(card, card.id)'>
-          <div class='initQuestionCard z-depth-3 modal-trigger' href="#modal1" ng-click='getCard(card)'>
-            <img class='initQuestionGif' src="http://bit.ly/1polRSn" alt="?"/>
-            <p class='initCategory'>{{card.category}}</p>
-            <p class='initQuestion'>{{card.question}}</p>
-          </div>
-          <a ng-model='deleteButton' ng-click='deleteCard(card, card.id)' class="deleteButton btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <!-- sarted game -->
-    <div class="container">
-      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-      	<div class="flipper">
-          <!-- Question card -->
-      		<div class="front">
-            <div class="row">
-              <div class='questionCard z-depth-5'>
-                <img class='questionGif' src="http://bit.ly/1polRSn" alt="?"/>
-                <h4 class='category'>Soccer</h4>
-                <p class='question'>Who is the best soccer player in the world?</p>
-              </div>
-            </div>
-      		</div>
-          <!-- Answer card -->
-      		<div class="back">
-            <div class="row">
-              <div class='answerCard z-depth-5'>
-                <img class='answerGif' src="http://bit.ly/1pomFGR" alt=""/>
-                <h5 class="answerTitle">Answer</h5>
-                <h3 class="answer">Lionel Messi</h3>
-              </div>
-            </div>
-      		</div>
-      	</div>
-      </div>
-      <a class="newCardButton btn-floating btn-large waves-effect waves-light yellow accent-3"><i class="material-icons">add</i></a>
-   </div>
-
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-          <div class="row">
-            <div class="input-field col s4">
-              <input ng-model='updateObj.category' id="category" type="text">
-              <label>Category</label>
-            </div>
-            <div class="input-field col s4">
-              <input ng-model='updateObj.question' id="question" type="text">
-              <label>Question</label>
-            </div>
-            <div class="input-field col s4">
-              <input ng-model='updateObj.answer' id="answer" type='text'>
-              <label>Answer</label>
-            </div>
-        </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">cancel</a>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='edit(updateObj)'>Update</a>
-      </div>
-    </div>
-
-
+  <div ng-controller='navCtrl' class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a ng-click='play()' class="btn-floating red"><i class="material-icons">play_circle_filled</i></a></li>
+      <li><a ng-click='goHome()' class="btn-floating yellow darken-1"><i class="material-icons">store</i></a></li>
+    </ul>
+  </div>
 
   </body>
 </html>

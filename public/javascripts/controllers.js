@@ -2,7 +2,32 @@
 
 var app = angular.module("flashCardApp")
 
-app.controller("cardCtrl", ($scope, Services) => {
+
+app.controller("gameCtrl", ($scope, Services, $state) => {
+  var random = Math.floor(Math.random() * Services.list.length);
+  $scope.single = Services.list[random];
+
+  $scope.nextCard = () => {
+    var random = Math.floor(Math.random() * Services.list.length);
+    $scope.single = Services.list[random];
+    };
+});
+
+app.controller("navCtrl", ($scope, Services, $state) => {
+  $scope.play = () => {
+    $state.go("game")
+  }
+  $scope.goHome = () => {
+    $state.go("cards")
+  }
+});
+
+
+app.controller("cardCtrl", ($scope, Services, $state) => {
+
+  console.log('klsjdflisdfj');
+
+
 
   $scope.cardId;
 

@@ -16,15 +16,15 @@ app.run(function(Services) {
 
 app.config(($stateProvider, $urlRouterProvider) => {
   $stateProvider
-    .state('list', {
-      url: "/list",
-      templateUrl: "/html/list.html",
-      controller: "listCtrl"
+    .state('cards', {
+      url: "/",
+      templateUrl: "states/main.html",
+      controller: "cardCtrl"
     })
-    .state("detail", {
-      url: "/detail",
-      templateUrl: "/html/detail.html",
-      controller: "detailCtrl"
+    .state("game", {
+      url: "/game",
+      templateUrl: "states/game.html",
+      controller: "gameCtrl"
     })
   $urlRouterProvider.otherwise("/")
 })
