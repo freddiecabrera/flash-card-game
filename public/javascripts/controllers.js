@@ -3,6 +3,24 @@
 var app = angular.module("flashCardApp")
 
 app.controller("cardCtrl", ($scope, Services) => {
+  $scope.navContainer = true;
+  $scope.showNavBar = false;
+
+  $scope.navBar = () => {
+    $scope.navContainer = false;
+    $scope.showNavBar = true;
+  }
+
+  $scope.addCard = () => {
+    $scope.showNavBar = false;
+    $scope.navContainer = true;
+    Services.addCard($scope.newCard).then((res)=>{
+      $scope.list.push(res.data);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
   $scope.initModals = function() {
     $('.modal-trigger').leanModal();
   }
@@ -13,28 +31,16 @@ app.controller("cardCtrl", ($scope, Services) => {
     $scope.list = newVal
   });
 
-  // Item.get().then((res) => {
-  //   var items = res.data
-  //   $scope.items = items
-  // }, function(err) {
-  //   console.log(err)
-  // })
-  //
-  // $scope.add = () => {
-  //
-  //   Item.add($scope.newItem).then((res) => {
-  //     $scope.items.push(res.data)
-  //   })
-  // }
-  //
-  // $scope.delete = (item) => {
-  //
-  //   Item.delete(item).then(function() {
-  //     var index = $scope.items.indexOf(item)
-  //     $scope.items.splice(index, 1)
-  //   })
-  // }
-  //
+
+  $scope.deleteCard = (card, id) => {
+    console.log('id', id);
+    console.log('card', card);
+    $scope.list.splice(card, 1);
+    Services.delete(id).then(function() {
+      //var index = $scope.list.indexOf(card)
+    });
+  }
+
   // $scope.edit = (upItem) => {
   //
   //   Item.edit(item, upItem).then((res) => {

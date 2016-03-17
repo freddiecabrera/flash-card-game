@@ -22,12 +22,12 @@ router.get('/cards', function(req, res, next) {
 router.post('/cards', function(req, res) {
   db.query('INSERT INTO flashcards SET?', req.body, function(err, result) {
     if (err) return res.status(400).send(err);
-    res.send(result);
+    res.send(req.body);
   });
 });
 
-router.delete("/cards", (req, res) => {
-    id = req.body.id;
+router.delete("/cards/:id", (req, res) => {
+    id = req.params.id;
     db.query("DELETE FROM flashcards WHERE id=" + id, function(err, result) {
           if (err) return res.status(400).send(err);
           console.log('deleted' + result.affectedRows + 'rows');

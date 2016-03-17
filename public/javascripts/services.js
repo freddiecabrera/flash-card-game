@@ -12,9 +12,7 @@ var app = angular.module('flashCardApp');
 //     return $http.post("/cards", data)
 //   }
 //
-//   this.delete = (currentData) => {
-//     return $http.delete("/cards/")
-//   }
+
 //
 //   this.edit = (oldData, currentData) => {
 //     return $http.put(("/cards/", currentData)
@@ -24,13 +22,22 @@ var app = angular.module('flashCardApp');
 app.service("Services", function($http) {
       this.getList = () => {
         $http.get("/cards").then(res => {
-          console.log(res.data)
           this.list = res.data;
         }, err => {
           console.error("Service Error ", err)
         })
     };
-  })
+
+    this.addCard = (data) => {
+      return $http.post('/cards', data)
+    }
+
+    this.delete = (currentData) => {
+      return $http.delete(`/cards/${currentData}`);
+    }
+  });
+
+
 
     // this.getDetails = (url, cb) => {
     //   return $http.get(url).then(res => {
