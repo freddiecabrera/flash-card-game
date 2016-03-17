@@ -35,9 +35,9 @@ app.controller("cardCtrl", ($scope, Services) => {
   $scope.deleteCard = (card, id) => {
     console.log('id', id);
     console.log('card', card);
-    $scope.list.splice(card, 1);
+    var index = $scope.list.indexOf(card)
+    $scope.list.splice(index, 1);
     Services.delete(id).then(function() {
-      //var index = $scope.list.indexOf(card)
     });
   }
 
